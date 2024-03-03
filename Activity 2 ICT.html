@@ -1,5 +1,5 @@
+
 <html>
-  <html lang="en">  
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,17 +94,15 @@ const quizData = [
         correctAnswer: "Defines client-side scripts"
     },
     {
-        question: "How do you add an event listener to an HTML element in JavaScript?",
-        options: ["addEventListener("click", myFunction)", "onclick = myFunction()", "attachEvent("onclick", myFunction)"],
-        correctAnswer: "addEventListener("click", myFunction)"
-    },
-    {
-      
-
-      question: "Which CSS property sets margin on all sides?",
+        question: "Which CSS property sets margin on all sides?",
         options: ["padding", "margin-left", "margin"],
         correctAnswer: "margin"
     },
+    {
+        question: "How do you link a JavaScript file to HTML?",
+        options: ['<script src="script.js">', '<javascript src="script.js">', '<link rel="javascript" href="script.js">'],
+        correctAnswer: '<script src="script.js">'
+    }
 ];
 
 let currentQuestion = 0;
