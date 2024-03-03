@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #003366; /* Dark blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000; /* Text color */
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #adbed0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.timer {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="homePage">
+    <h1>WELCOME! to the ICT 8 QUIZ 1 <br>
+        GOODLUCK!
+    </h1>
+    <button class="btn" onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<div class="container hidden" id="quizContainer">
+    <div class="timer">Time Left: <span id="timer">10</span> seconds</div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="container hidden" id="scoreSheet">
+    <h1>Quiz Finished!</h1>
+    <div id="score"></div>
+    <button class="btn" onclick="retakeQuiz()">Retake Quiz</button>
+</div>
+
+<script>
+const quizData = [
+    {
+        question: "What's the tag for defining an unordered list in HTML?",
+        options: ["<ul>", "<ol>", "<li>"],
+        correctAnswer: "<ul>"
+    },
+    {
+        question: "In CSS, which property changes text color?",
+        options: ["font-family", "color", "text-align"],
+        correctAnswer: "color"
+    },
+    {
+        question: "What's the purpose of the <script> tag in HTML?",
+        options: ["Defines a document section", "Imports external stylesheets", "Defines client-side scripts"],
+        correctAnswer: "Defines client-side scripts"
+    },
+    {
+        question: "Which CSS property sets margin on all sides?",
+        options: ["padding", "margin-left", "margin"],
+        correctAnswer: "margin"
+    },
+    {
+        question: "How do you link a JavaScript file to HTML?",
+        options: ['<script src="script.js">', '<javascript src="script.js">', '<link rel="javascript" href="script.js">'],
+        correctAnswer: '<script src="script.js">'
+    }
+];
+
+let currentQuestion = 0;
+let timer;
+let timeLeft = 10;
+let score = 0;
+
+function startQuiz() {
+    document.getElementById('homePage').classList.add('hidden');
+    document.getElementById('quizContainer').classList.remove('hidden');
+    displayQuestion();
+    startTimer();
+}
+
+function displayQuestion() {
+    const questionElement = document.getElementById('question');
+    const optionsElement = document.getElementById('options');
+
+    questionElement.textContent = quizData[currentQuestion].question;
+    optionsElement.innerHTML = '';
+
+    quizData[currentQuestion].options.forEach(option => {
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.setAttribute('type', 'radio');
+        input.setAttribute('name', 'option');
+        input.setAttribute('value', option);
+        label.appendChild(input);
+        label.append(option);
+        optionsElement.appendChild(label);
+    });
+}
+
+function startTimer() {
+    timeLeft = 10;
+    timer = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+        } else {
+            clearInterval(timer);
+            nextQuestion();
+        }
+    }, 1000);
+}
+
+function nextQuestion() {
+    clearInterval(timer);
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+        if (selectedOption.value === quizData[currentQuestion].correctAnswer) {
+            score++;
+        }
+    }
+    if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        displayQuestion();
+        startTimer();
+    } else {
+        showScoreSheet();
+    }
+    if(currentQuestion>0){
+      alert("Correct Answer: "+quizData[currentQuestion-1].correctAnswer);
+    }
+}
+
+function showScoreSheet() {
+    document.getElementById('quizContainer').classList.add('hidden');
+    document.getElementById('scoreSheet').classList.remove('hidden');
+    document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
+}
+
+function retakeQuiz() {
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
