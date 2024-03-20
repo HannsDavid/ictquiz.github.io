@@ -1,17 +1,19 @@
 <html>
 <head>
-<title>JJk Quiz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
 <style>
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #003366; /* Dark blue background */
+    background-color: #003366; 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #000000; /* Text color */
+    color: #000000; 
 }
 
 .container {
@@ -54,7 +56,9 @@ body {
 <body>
 
 <div class="container" id="homePage">
-    <h1>Welcome to the JJk Quiz</h1>
+    <h1>WELCOME! to the ICT 8 QUIZ 1 <br>
+        GOODLUCK!
+    </h1>
     <button class="btn" onclick="startQuiz()">Start Quiz</button>
 </div>
 
@@ -74,79 +78,33 @@ body {
 <script>
 const quizData = [
     {
-        question: "Who is the main character of JJk?",
-        options: ["Yuuji Itadori", "Megumi Fushiguro", "Satoru Gojo"],
-        correctAnswer: "Yuuji Itadori"
+        question: "What's the tag for defining an unordered list in HTML?",
+        options: ["<ul>", "<ol>", "<li>"],
+        correctAnswer: "<ul>"
     },
     {
-        question: "What is Yuuji's signature weapon?",
-        options: ["Sword", "Hammer", "Baseball Bat"],
-        correctAnswer: "Baseball Bat"
+        question: "In CSS, which property changes text color?",
+        options: ["font-family", "color", "text-align"],
+        correctAnswer: "color"
     },
     {
-        question: "What is the school Yuuji attends?",
-        options: ["Jujutsu High School", "Tokyo Metropolitan Curse Technical College", "Sorcery Training Institute"],
-        correctAnswer: "Tokyo Metropolitan Curse Technical College"
+        question: "What's the purpose of the <script> tag in HTML?",
+        options: ["Defines a document section", "Imports external stylesheets", "Defines client-side scripts"],
+        correctAnswer: "Defines client-side scripts"
     },
     {
-        question: "Who is the strongest Jujutsu sorcerer?",
-        options: ["Satoru Gojo", "Nanami Kento", "Toge Inumaki"],
-        correctAnswer: "Satoru Gojo"
+        question: "Which CSS property sets margin on all sides?",
+        options: ["padding", "margin-left", "margin"],
+        correctAnswer: "padding"
     },
     {
-        question: "What is Megumi's shikigami's name?",
-        options: ["Nue", "Kuchisake-Onna", "Hana"],
-        correctAnswer: "Nue"
-    },
-    {
-        question: "Who is the cursed spirit responsible for Yuuji's grandfather's death?",
-        options: ["Sukuna", "Mahito", "Jogo"],
-        correctAnswer: "Sukuna"
-    },
-    {
-        question: "What is the domain expansion of Satoru Gojo?",
-        options: ["Unlimited Void", "Cursed Speech", "Coffin of the Iron Mountain"],
-        correctAnswer: "Unlimited Void"
-    },
-    {
-        question: "What is Maki Zenin's weapon of choice?",
-        options: ["Sword", "Gun", "Bow"],
-        correctAnswer: "Sword"
-    },
-    {
-        question: "What is the name of Panda's sorcerer?",
-        options: ["Momo Nishimiya", "Kokichi Muta", "Kento Nanami"],
-        correctAnswer: "Kokichi Muta"
-    },
-    {
-        question: "Who is the third-year student known for his ability to manipulate cursed energy through simple words?",
-        options: ["Toge Inumaki", "Nanami Kento", "Todo Aoi"],
-        correctAnswer: "Toge Inumaki"
-    },
-    {
-        question: "What is the name of Nobara Kugisaki's cursed technique?",
-        options: ["Straw Doll Technique", "Resonance", "Hairpin"],
-        correctAnswer: "Straw Doll Technique"
-    },
-    {
-        question: "Who is the principal of Tokyo Metropolitan Curse Technical College?",
-        options: ["Masamichi Yaga", "Yoshinobu Gakuganji", "Kiyotaka Ijichi"],
-        correctAnswer: "Masamichi Yaga"
-    },
-    {
-        question: "What is the name of the demon living inside Yuuji?",
-        options: ["Sukuna", "Mahito", "Jogo"],
-        correctAnswer: "Sukuna"
-    },
-    {
-        question: "What is the name of Maki Zenin's sister?",
-        options: ["Nobara Kugisaki", "Mai Zenin", "Utahime Iori"],
-        correctAnswer: "Mai Zenin"
-    },
-    {
-        question: "Who is the idol of Yuuji Itadori?",
-        options: ["Satoru Gojo", "Junpei Yoshino", "Rika Orimoto"],
-        correctAnswer: "Junpei Yoshino"
+       question: "What is the purpose of the setTimeout() function in JavaScript?",
+    options: [
+        "To delay the execution of a function for a specified number of milliseconds",
+        "To execute a function repeatedly at specified intervals",
+        "To determine the type of a variable"
+    ],
+    correctAnswer: "To delay the execution of a function for a specified number of milliseconds"
     }
 ];
 
@@ -194,4 +152,37 @@ function startTimer() {
     }, 1000);
 }
 
-function next
+function nextQuestion() {
+    clearInterval(timer);
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+        if (selectedOption.value === quizData[currentQuestion].correctAnswer) {
+            score++;
+        }
+    }
+    if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        displayQuestion();
+        startTimer();
+    } else {
+        showScoreSheet();
+    }
+    if(currentQuestion>0){
+      alert("Correct Answer: "+quizData[currentQuestion-1].correctAnswer);
+    }
+}
+
+function showScoreSheet() {
+    document.getElementById('quizContainer').classList.add('hidden');
+    document.getElementById('scoreSheet').classList.remove('hidden');
+    document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
+}
+
+function retakeQuiz() {
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
