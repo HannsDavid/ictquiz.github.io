@@ -1,82 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #003366; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #000000; 
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #003366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #000000;
+        }
 
-.container {
-    max-width: 600px;
-    padding: 20px;
-    background-color: #adbed0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #adbed0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-.question {
-    margin-bottom: 20px;
-}
+        .question {
+            margin-bottom: 20px;
+        }
 
-.options label {
-    display: block;
-    margin-bottom: 10px;
-}
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #003366;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
+        .btn {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
 
-.timer {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
+        .timer {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
 
-.hidden {
-    display: none;
-}
-</style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container" id="homePage">
-    <h1>WELCOME! to the ICT 8 QUIZ 1 <br>
-        GOODLUCK!
-    </h1>
-    <button class="btn" onclick="startQuiz()">Start Quiz</button>
-</div>
+    <div class="container" id="homePage">
+        <h1>
+            WELCOME! to the ICT 8 QUIZ 1 <br>
+            GOODLUCK!
+        </h1>
+        <button class="btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
 
-<div class="container hidden" id="quizContainer">
-    <div class="timer">Time Left: <span id="timer">10</span> seconds</div>
-    <div class="question" id="question"></div>
-    <div class="options" id="options"></div>
-    <button class="btn" onclick="nextQuestion()">Next</button>
-</div>
+    <div class="container hidden" id="quizContainer">
+        <div class="timer">Time Left: <span id="timer">10</span> seconds</div>
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button class="btn" onclick="nextQuestion()">Next</button>
+    </div>
 
-<div class="container hidden" id="scoreSheet">
-    <h1>Quiz Finished!</h1>
-    <div id="score"></div>
-    <button class="btn" onclick="retakeQuiz()">Retake Quiz</button>
-</div>
+    <div class="container hidden" id="scoreSheet">
+        <h1>Quiz Finished!</h1>
+        <div id="score"></div>
+        <button class="btn" onclick="retakeQuiz()">Retake Quiz</button>
+    </div>
 
-<script>
+    <script>
 const quizData = [
     {
         question: "What's the tag for defining an unordered list in HTML?",
@@ -124,11 +125,11 @@ const quizData = [
     },
 {
         question: "What is used to prevent execution of a specific code?",
-        options: ['\\ (At the start of the code)', '\\ ( At the end of the code)', '\* *\','All of the above'],
+        options: ['\\ (At the start of the code)', '\\ ( At the end of the code)', '','All of the above'],
         correctAnswer: "\\ (At the start of the code"
     },
 {
-        question: "______ is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features?",
+        question: "____ is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features?",
         options: ['HTML', 'Javascript', 'Phyton','CSS'],
         correctAnswer: "CSS"
     }
@@ -207,7 +208,7 @@ function showScoreSheet() {
 function retakeQuiz() {
     location.reload();
 }
-</script>
+    </script>
 
 </body>
 </html>
