@@ -1,4 +1,5 @@
 
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,12 +10,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #003366; 
+    background-color: #003366; /* Dark blue background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #000000; 
+    color: #000000; /* Text color */
 }
 
 .container {
@@ -96,17 +97,39 @@ const quizData = [
     {
         question: "Which CSS property sets margin on all sides?",
         options: ["padding", "margin-left", "margin"],
-        correctAnswer: "padding"
+        correctAnswer: "margin"
     },
     {
-       question: "What is the purpose of the setTimeout() function in JavaScript?",
-    options: [
-        "To delay the execution of a function for a specified number of milliseconds",
-        "To execute a function repeatedly at specified intervals",
-        "To determine the type of a variable"
-    ],
-    correctAnswer: "To delay the execution of a function for a specified number of milliseconds"
-    }
+        question: "How do you link a JavaScript file to HTML?",
+        options: ['Menu', 'Footer', 'Navigation Bar', 'Hyperlink'],
+        correctAnswer: "Navigation Bar"
+    },
+{
+        question: "A set of buttons or images in a row or column that serves as a control point to link the user to sections on a website?",
+        options: ['<script src="script.js">', '<javascript src="script.js">', '<link rel="javascript" href="script.js">'],
+        correctAnswer: "<script src="script.js">"
+    },
+{
+        question: "Which tag is used in CSS to define information in an HTML Document?",
+        options: ['<style>', '<div>', '<nav>','<span>'],
+        correctAnswer: "<style>"
+    },
+{
+        question: "What is the purpose of the <div> tag?",
+        options: ['It provides a division or a section in an HTML Document', 'It groups sections of codes', 'To section a group of codes to target with CSS','All of the above'],
+        correctAnswer: "All of the above"
+    },
+{
+        question: "What is used to prevent execution of a specific code?",
+        options: ['\\ (At the start of the code)', '\\ ( At the end of the code)', '\* *\','All of the above'],
+        correctAnswer: "\\ (At the start of the code"
+    },
+{
+        question: "________ is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features?",
+        options: ['HTML', 'Javascript', 'Phyton','CSS'],
+        correctAnswer: "CSS"
+    },
+
 ];
 
 let currentQuestion = 0;
@@ -144,8 +167,10 @@ function startTimer() {
     timeLeft = 10;
     timer = setInterval(() => {
         if (timeLeft > 0) {
-            timeLeft--;
-            document.getElementById('timer').textContent = timeLeft;
+    timeLeft-;
+
+
+          document.getElementById('timer').textContent = timeLeft;
         } else {
             clearInterval(timer);
             nextQuestion();
