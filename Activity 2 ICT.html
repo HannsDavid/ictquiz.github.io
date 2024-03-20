@@ -1,8 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz</title>
+<title>JJk Quiz</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -56,9 +57,7 @@ body {
 <body>
 
 <div class="container" id="homePage">
-    <h1>WELCOME! to the ICT 8 QUIZ 1 <br>
-        GOODLUCK!
-    </h1>
+    <h1>Welcome to the JJk Quiz</h1>
     <button class="btn" onclick="startQuiz()">Start Quiz</button>
 </div>
 
@@ -78,56 +77,80 @@ body {
 <script>
 const quizData = [
     {
-        question: "What's the tag for defining an unordered list in HTML?",
-        options: ["<ul>", "<ol>", "<li>"],
-        correctAnswer: "<ul>"
+        question: "Who is the main character of JJk?",
+        options: ["Yuuji Itadori", "Megumi Fushiguro", "Satoru Gojo"],
+        correctAnswer: "Yuuji Itadori"
     },
     {
-        question: "In CSS, which property changes text color?",
-        options: ["font-family", "color", "text-align"],
-        correctAnswer: "color"
+        question: "What is Yuuji's signature weapon?",
+        options: ["Sword", "Hammer", "Baseball Bat"],
+        correctAnswer: "Baseball Bat"
     },
     {
-        question: "What's the purpose of the <script> tag in HTML?",
-        options: ["Defines a document section", "Imports external stylesheets", "Defines client-side scripts"],
-        correctAnswer: "Defines client-side scripts"
+        question: "What is the school Yuuji attends?",
+        options: ["Jujutsu High School", "Tokyo Metropolitan Curse Technical College", "Sorcery Training Institute"],
+        correctAnswer: "Tokyo Metropolitan Curse Technical College"
     },
     {
-        question: "Which CSS property sets margin on all sides?",
-        options: ["padding", "margin-left", "margin"],
-        correctAnswer: "margin"
+        question: "Who is the strongest Jujutsu sorcerer?",
+        options: ["Satoru Gojo", "Nanami Kento", "Toge Inumaki"],
+        correctAnswer: "Satoru Gojo"
     },
     {
-        question: "How do you link a JavaScript file to HTML?",
-        options: ['Menu', 'Footer', 'Navigation Bar', 'Hyperlink'],
-        correctAnswer: "Navigation Bar"
+        question: "What is Megumi's shikigami's name?",
+        options: ["Nue", "Kuchisake-Onna", "Hana"],
+        correctAnswer: "Nue"
     },
-{
-        question: "A set of buttons or images in a row or column that serves as a control point to link the user to sections on a website?",
-        options: ['<script src="script.js">', '<javascript src="script.js">', '<link rel="javascript" href="script.js">'],
-        correctAnswer: '<script src="script.js ">'
+    {
+        question: "Who is the cursed spirit responsible for Yuuji's grandfather's death?",
+        options: ["Sukuna", "Mahito", "Jogo"],
+        correctAnswer: "Sukuna"
     },
-{
-        question: "Which tag is used in CSS to define information in an HTML Document?",
-        options: ['<style>', '<div>', '<nav>','<span>'],
-        correctAnswer: "<style>"
+    {
+        question: "What is the domain expansion of Satoru Gojo?",
+        options: ["Unlimited Void", "Cursed Speech", "Coffin of the Iron Mountain"],
+        correctAnswer: "Unlimited Void"
     },
-{
-        question: "What is the purpose of the <div> tag?",
-        options: ['It provides a division or a section in an HTML Document', 'It groups sections of codes', 'To section a group of codes to target with CSS','All of the above'],
-        correctAnswer: "All of the above"
+    {
+        question: "What is Maki Zenin's weapon of choice?",
+        options: ["Sword", "Gun", "Bow"],
+        correctAnswer: "Sword"
     },
-{
-        question: "What is used to prevent execution of a specific code?",
-        options: ['\\ (At the start of the code)', '\\ ( At the end of the code)', '\* *\','All of the above'],
-        correctAnswer: "\\ (At the start of the code"
+    {
+        question: "What is the name of Panda's sorcerer?",
+        options: ["Momo Nishimiya", "Kokichi Muta", "Kento Nanami"],
+        correctAnswer: "Kokichi Muta"
     },
-{
-        question: "________ is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features?",
-        options: ['HTML', 'Javascript', 'Phyton','CSS'],
-        correctAnswer: "CSS"
+    {
+        question: "Who is the third-year student known for his ability to manipulate cursed energy through simple words?",
+        options: ["Toge Inumaki", "Nanami Kento", "Todo Aoi"],
+        correctAnswer: "Toge Inumaki"
     },
-
+    {
+        question: "What is the name of Nobara Kugisaki's cursed technique?",
+        options: ["Straw Doll Technique", "Resonance", "Hairpin"],
+        correctAnswer: "Straw Doll Technique"
+    },
+    {
+        question: "Who is the principal of Tokyo Metropolitan Curse Technical College?",
+        options: ["Masamichi Yaga", "Yoshinobu Gakuganji", "Kiyotaka Ijichi"],
+        correctAnswer: "Masamichi Yaga"
+    },
+    {
+        question: "What is the name of the demon living inside Yuuji?",
+        options: ["Sukuna", "Mahito", "Jogo"],
+        correctAnswer: "Sukuna"
+    },
+    {
+        question: "What is the name of Maki Zenin's sister?",
+        options: ["Nobara Kugisaki", "Mai Zenin", "Utahime Iori"],
+        correctAnswer: "Mai Zenin"
+    },
+    {
+        question: "Who is the idol of Yuuji Itadori?",
+        options: ["Satoru Gojo", "Junpei Yoshino", "Rika Orimoto"],
+        correctAnswer: "Junpei Yoshino"
+    }
 ];
 
 let currentQuestion = 0;
@@ -165,10 +188,8 @@ function startTimer() {
     timeLeft = 10;
     timer = setInterval(() => {
         if (timeLeft > 0) {
-    timeLeft-;
-
-
-          document.getElementById('timer').textContent = timeLeft;
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
         } else {
             clearInterval(timer);
             nextQuestion();
@@ -176,37 +197,4 @@ function startTimer() {
     }, 1000);
 }
 
-function nextQuestion() {
-    clearInterval(timer);
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    if (selectedOption) {
-        if (selectedOption.value === quizData[currentQuestion].correctAnswer) {
-            score++;
-        }
-    }
-    if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        displayQuestion();
-        startTimer();
-    } else {
-        showScoreSheet();
-    }
-    if(currentQuestion>0){
-      alert("Correct Answer: "+quizData[currentQuestion-1].correctAnswer);
-    }
-}
-
-function showScoreSheet() {
-    document.getElementById('quizContainer').classList.add('hidden');
-    document.getElementById('scoreSheet').classList.remove('hidden');
-    document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
-}
-
-function retakeQuiz() {
-    location.reload();
-}
-
-</script>
-
-</body>
-</html>
+function next
