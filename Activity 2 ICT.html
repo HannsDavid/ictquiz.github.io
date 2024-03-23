@@ -126,13 +126,13 @@ const quizData = [
 {
         question: "What is used to prevent execution of a specific code?",
         options: ['\\ (At the start of the code)', '\\ ( At the end of the code)','All of the above'],
-        correctAnswer: " \ \ (At the start of the code)"
+        correctAnswer: " \\ (At the start of the code)"
     },
 {
         question: "____ is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features?",
         options: ['HTML', 'Javascript', 'CSS'],
         correctAnswer: "CSS"
-    }
+    },
 { 
     question: "What does the *=== operator in JavaScript do?",
     options: ["Assigns a value to a variable", "Checks if two values are equal in value and type", "Checks if two values are equal in type, but not in value"],
@@ -167,74 +167,5 @@ let timeLeft = 10;
 let score = 0;
 
 function startQuiz() {
-    document.getElementById('homePage').classList.add('hidden');
-    document.getElementById('quizContainer').classList.remove('hidden');
-    displayQuestion();
-    startTimer();
-}
+    document.g
 
-function displayQuestion() {
-    const questionElement = document.getElementById('question');
-    const optionsElement = document.getElementById('options');
-
-    questionElement.textContent = quizData[currentQuestion].question;
-    optionsElement.innerHTML = '';
-
-    quizData[currentQuestion].options.forEach(option => {
-        const label = document.createElement('label');
-        const input = document.createElement('input');
-        input.setAttribute('type', 'radio');
-        input.setAttribute('name', 'option');
-        input.setAttribute('value', option);
-        label.appendChild(input);
-        label.append(option);
-        optionsElement.appendChild(label);
-    });
-}
-
-function startTimer() {
-    timeLeft = 10;
-    timer = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-            document.getElementById('timer').textContent = timeLeft;
-        } else {
-            clearInterval(timer);
-            nextQuestion();
-        }
-    }, 1000);
-}
-
-function nextQuestion() {
-    clearInterval(timer);
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    if (selectedOption) {
-        if (selectedOption.value === quizData[currentQuestion].correctAnswer) {
-            score++;
-        }
-    }
-    if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        displayQuestion();
-        startTimer();
-    } else {
-        showScoreSheet();
-    }
-    if(currentQuestion>0){
-        alert("Correct Answer: "+quizData[currentQuestion-1].correctAnswer);
-    }
-}
-
-function showScoreSheet() {
-    document.getElementById('quizContainer').classList.add('hidden');
-    document.getElementById('scoreSheet').classList.remove('hidden');
-    document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
-}
-
-function retakeQuiz() {
-    location.reload();
-}
-    </script>
-
-</body>
-</html>
